@@ -5,6 +5,7 @@ import './Networth.css'
 
 const Networth = () => {
     const [singers, setSingers] = useState([]);
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         fetch('./singers.JSON')
@@ -13,15 +14,13 @@ const Networth = () => {
     }, []);
 
     const handleAddToCart = (singer) => {
-        console.log('clicked')
+        const newCart = [...cart, singer];
+        setCart(newCart);
     };
     return (
         <>
-            {/* <div>
-                <Header></Header>
-            </div> */}
             <div className="w-75 mx-auto d-flex mt-3">
-                <div className="row row-cols-3 row-cols-md-3 g-4 w-75">
+                <div className="row row-cols-3 row-cols-md-3 g-3 w-75">
                     {
                         singers.map(singer => <Singers
                         key={singer.id}
@@ -30,8 +29,11 @@ const Networth = () => {
                         ></Singers>)
                     }
                 </div>
-                <div className="cart-container ms-3">
-                    <Cart></Cart>
+                <div className="w-25 cart-container ms-3">
+                    <Cart
+                        cart={cart}
+                        
+                    ></Cart>
                 </div>
             </div>
         </>
