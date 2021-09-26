@@ -13,14 +13,35 @@ const Cart = (props) => {
         totalSingerAdded = totalSingerAdded + singer.quantity;
     }
 
+    const userIcon = <i className="fas fa-user"></i>;
+    // const exists = singer.id;
+    // let shopping_cart = {};
+    // if (!exist) {
+    //     // cart.singer[id] = 1;
+    // } else {
+        
+    // }
+
     return (
-        <div className="border border-info rounded bg-dark text-info w-100 cart-div py-2 px-2">
-            <h6>Singers Added: {totalSingerAdded}</h6>
-            {/* <img src={img} alt=""/> */}
-            {/* <h5>{singerName}</h5> */}
-            <h6>Total Net-Worth: {totalNetWorth}</h6>
+        <div className="border border-success rounded bg-light text-success w-100 cart-div py-2 px-2 shadow-lg">
+            <h5>{userIcon} Singers Added: {totalSingerAdded}</h5>
+            {
+                
+                cart.map(singer => (
+                    <div className=" justify-content-between bg-light d-flex  my-1">
+                        <div className="d-flex ">
+                            <img src={singer.img} alt=""/>
+                            <h6 className="ps-1 pt-1">{singer.name}</h6>
+                        </div>
+                        <div>
+                            <i className="fas fa-trash btn-outline-danger"></i>
+                        </div>
+                    </div>
+                ))
+            }
+            <h5>Total Net-Worth: {totalNetWorth}</h5>
             <div className="text-center">
-                <button className="btn btn-outline-info my-2">Show More</button>
+                <button className="btn btn-outline-success my-2">Buy Now</button>
             </div>
         </div>
     );

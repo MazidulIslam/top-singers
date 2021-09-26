@@ -5,7 +5,7 @@ import Networth from './components/Networth/Networth';
 
 function App() {
   return (
-    <div className="row">
+    <div className="row bg-success bg-opacity-25">
       <Header/>
       <Networth></Networth>
     </div>
